@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+    {% block body %}
+      <div class="jumbotron text-center" style="opacity: 1; color: white;">
+        <h1>Instagram Engagement Calculator</h1>
+        <p class="lead"><strong>This application is build on the Flask</strong></p>
+        <div class="container">
+          <br>
+          <form action="{{url_for('index')}}" method="post">
+              <div class="form-group">
+                <br>
+                <table class="table" width="70%"; style="text-align: left;" height="20px">
+                  <tr>
+                    <td class="td1">
+                        <b><label for="question" style="color:white">Enter the Instagram Profile :</label></b>
+                    </td>
+                    <td>
+                        <input type="text" placeholder="Enter the Profile" name="target_profile" value="{{request.form.target_profile }}" class="form-control" id="body" required>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <button type="submit" class="btn btn-success btn-block"><h3><span style="color: white;">Submit</span></button>
+          </form>
+          <br>  
+          <br>
+          <br>
+          <div class="container">
+            <strong><span style="color: whitesmoke"><h3>Engagement on your Profile: </h3></span></strong>
+            {% block content %}
+              <p class="category"><strong><span style="color:black" class="label label-default"> {{ category }}</span></strong></p>
+            {% endblock content %}
+          </div>
+        </div>
+      </div>
+    {% endblock %}
